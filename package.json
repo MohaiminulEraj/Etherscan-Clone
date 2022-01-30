@@ -1,0 +1,29 @@
+{
+  "name": "etherscan-clone",
+  "version": "1.0.0",
+  "description": "Etherscan Clone Application",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Mohaiminul Eraj",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^14.2.0",
+    "ethers": "^5.5.3",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
