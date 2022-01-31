@@ -1,9 +1,14 @@
 import { ethers } from 'ethers';
+import pool from '../config/db.js';
 
 const connectEther = async (req, res) => {
     try {
         // If you don't specify a //url//, Ethers connects to the default 
         // (i.e. ``http:/\/localhost:8545``)
+        // const userInfo = await pool.query("SELECT * FROM userinfo");
+        // if(userInfo.address.trim().length)
+        // console.log(userInfo.address.trim().length)
+        // res.json(userInfo.rows);
         console.log('address from connectEther: ', req.query.text.length)
         let address = req.query.text;
         if (address.length !== 42) {
@@ -66,8 +71,13 @@ const connectEther = async (req, res) => {
         // let code = await provider.getCode(address)
         console.log(`Balance: ${balance} Ether`.green.underline.bold)
         // console.log(ethers.utils.TransactionDescription(address))
+        console.log('gasPrice', gasPrice.length)
+        console.log(ethers.utils.formatEther(gasPrice))
+        console.log(blocknum.toString().length)
+        console.log('tx: ', tx.length)
         let etherDetails = {
-            gasPrice: gasPrice,
+            address: ethers.utils.getAddress(address),
+            gasPrice: ethers.utils.formatEther(gasPrice).toString(),
             balance: balance,
             blocknum: blocknum.toString(),
             tx: tx,

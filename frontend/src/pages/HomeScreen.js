@@ -31,7 +31,9 @@ const HomeScreen = () => {
                                     <p>{ether.blocknum}</p>
                                 </div>
                             ))} */}
+                            <p>Address: {etherDetails?.address}</p>
                             <p>Balance: {etherDetails?.balance}</p>
+                            <p>Gas Price: {etherDetails?.gasPrice}</p>
                             <p>Block Number: {etherDetails?.blocknum}</p>
                             <p>Transactions:</p>
                             <div>
